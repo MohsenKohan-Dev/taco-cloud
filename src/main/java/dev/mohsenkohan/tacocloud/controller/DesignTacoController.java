@@ -32,16 +32,6 @@ public class DesignTacoController {
         this.tacoRepository = tacoRepository;
     }
 
-    @ModelAttribute("order")
-    public Order order() {
-        return new Order();
-    }
-
-    @ModelAttribute("taco")
-    public Taco taco() {
-        return new Taco();
-    }
-
     @ModelAttribute
     public void addIngredientsToModel(Model model) {
         List<Ingredient> ingredients = new ArrayList<>();
@@ -63,13 +53,13 @@ public class DesignTacoController {
     }
 
     @GetMapping
-    public String showDesignForm() {
+    public String showDesignForm(Model model) {
+        model.addAttribute("taco", new Taco());
         return "design";
     }
 
     @PostMapping
-    public String processDesign(@Valid Taco taco, Errors errors,
-                                @ModelAttribute("order") Order order) {
+    public String processDesign(@Valid Taco taco, Errors errors, Order order) {
         if (errors.hasErrors()) {
             return "design";
         }
