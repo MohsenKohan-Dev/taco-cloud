@@ -6,7 +6,6 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.Instant;
-import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -15,7 +14,7 @@ import java.util.List;
 public class Taco {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private Instant createdAt;
@@ -27,11 +26,7 @@ public class Taco {
     @NotNull(message = "You must choose at least 1 ingredient")
     @Size(min = 1, message = "You must choose at least 1 ingredient")
     @ManyToMany(targetEntity = Ingredient.class)
-    private List<Ingredient> ingredients = new ArrayList<>();
-
-    public void addIngredient(Ingredient ingredient) {
-        ingredients.add(ingredient);
-    }
+    private List<Ingredient> ingredients;
 
     @PrePersist
     void createdAt() {

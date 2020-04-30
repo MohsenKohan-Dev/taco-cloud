@@ -14,7 +14,7 @@ import java.time.Instant;
 import java.util.Arrays;
 
 @Repository
-public class JdbcTacoRepository implements TacoRepository {
+public class JdbcTacoRepository {
 
     private final JdbcTemplate jdbc;
 
@@ -22,7 +22,6 @@ public class JdbcTacoRepository implements TacoRepository {
         this.jdbc = jdbc;
     }
 
-    @Override
     public Taco save(Taco taco) {
         long tacoId = saveTacoInfo(taco);
         taco.setId(tacoId);

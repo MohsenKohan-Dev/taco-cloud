@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Repository
-public class JdbcOrderRepository implements OrderRepository {
+public class JdbcOrderRepository {
 
     private final SimpleJdbcInsert orderInserter;
     private final SimpleJdbcInsert orderTacoInserter;
@@ -29,7 +29,6 @@ public class JdbcOrderRepository implements OrderRepository {
         objectMapper = new ObjectMapper();
     }
 
-    @Override
     public Order save(Order order) {
         order.setPlacedAt(Instant.now());
 
