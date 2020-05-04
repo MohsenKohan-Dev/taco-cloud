@@ -10,6 +10,10 @@
 </head>
 
 <body>
+  <form method="post" th:action="@{/logout}" id="logoutForm">
+    <input type="submit" value="Logout"/>
+  </form>
+
   <h1>Design your taco!</h1>
   <img th:src="@{/images/TacoCloud.png}"/>
 
