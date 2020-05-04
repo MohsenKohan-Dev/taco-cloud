@@ -33,10 +33,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
+        http
+                .authorizeRequests()
                 .antMatchers("/design", "/orders")
                 .access("hasRole('USER')")
                 .antMatchers("/", "/**")
-                .access("permitAll()");
+                .access("permitAll()")
+
+                .and()
+
+                .formLogin()
+                .loginPage("/login")
+                .defaultSuccessUrl("/design");
     }
 }
