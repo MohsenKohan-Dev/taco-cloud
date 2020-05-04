@@ -49,6 +49,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
 
                 .logout()
-                .logoutSuccessUrl("/");
+                .logoutSuccessUrl("/")
+
+                .and()
+
+                .csrf()
+                .ignoringAntMatchers("/h2-console/**")
+
+                .and()
+
+                .headers()
+                .frameOptions()
+                .sameOrigin();
     }
 }
