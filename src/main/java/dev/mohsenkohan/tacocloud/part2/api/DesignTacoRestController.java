@@ -4,11 +4,17 @@ import dev.mohsenkohan.tacocloud.part1.domain.Taco;
 import dev.mohsenkohan.tacocloud.part2.repository.TacoRestRepository;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.hateoas.CollectionModel;
+import org.springframework.hateoas.EntityModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
+
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
 @RequestMapping(path = "/design", produces = "application/json")
@@ -22,9 +28,16 @@ public class DesignTacoRestController {
     }
 
     @GetMapping("/recent")
-    public Iterable<Taco> recentTacos() {
+    public CollectionModel<EntityModel<Taco>> recentTacos() {
         PageRequest page = PageRequest.of(0, 12, Sort.by("createdAt").descending());
-        return tacoRepository.findAll(page).getContent();
+        List<Taco> tacos = tacoRepository.findAll(page).getContent();
+
+        CollectionModel<EntityModel<Taco>> recentResources = CollectionModel.wrap(tacos);
+        recentResources.add(
+                linkTo(methodOn(DesignTacoRestController.class).recentTacos())
+                        .withRel("recents"));
+
+        return recentResources;
     }
 
     @GetMapping("/{id}")
