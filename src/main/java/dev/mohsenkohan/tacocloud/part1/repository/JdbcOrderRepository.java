@@ -1,8 +1,8 @@
-package dev.mohsenkohan.tacocloud.repository;
+package dev.mohsenkohan.tacocloud.part1.repository;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import dev.mohsenkohan.tacocloud.domain.Order;
-import dev.mohsenkohan.tacocloud.domain.Taco;
+import dev.mohsenkohan.tacocloud.part1.domain.Order;
+import dev.mohsenkohan.tacocloud.part1.domain.Taco;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;

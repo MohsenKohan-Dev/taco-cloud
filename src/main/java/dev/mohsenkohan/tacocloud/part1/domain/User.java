@@ -1,4 +1,4 @@
-package dev.mohsenkohan.tacocloud.domain;
+package dev.mohsenkohan.tacocloud.part1.domain;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

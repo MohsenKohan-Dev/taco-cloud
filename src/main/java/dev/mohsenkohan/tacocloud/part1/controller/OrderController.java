@@ -1,9 +1,8 @@
-package dev.mohsenkohan.tacocloud.controller;
+package dev.mohsenkohan.tacocloud.part1.controller;
 
-import dev.mohsenkohan.tacocloud.OrderProps;
-import dev.mohsenkohan.tacocloud.domain.Order;
-import dev.mohsenkohan.tacocloud.domain.User;
-import dev.mohsenkohan.tacocloud.repository.OrderRepository;
+import dev.mohsenkohan.tacocloud.part1.domain.Order;
+import dev.mohsenkohan.tacocloud.part1.domain.User;
+import dev.mohsenkohan.tacocloud.part1.repository.OrderRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;

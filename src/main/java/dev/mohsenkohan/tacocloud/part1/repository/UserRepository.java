@@ -1,6 +1,6 @@
-package dev.mohsenkohan.tacocloud.repository;
+package dev.mohsenkohan.tacocloud.part1.repository;
 
-import dev.mohsenkohan.tacocloud.domain.User;
+import dev.mohsenkohan.tacocloud.part1.domain.User;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;

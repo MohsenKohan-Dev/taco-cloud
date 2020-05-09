@@ -1,7 +1,7 @@
-package dev.mohsenkohan.tacocloud.converter;
+package dev.mohsenkohan.tacocloud.part1.converter;
 
-import dev.mohsenkohan.tacocloud.domain.Ingredient;
-import dev.mohsenkohan.tacocloud.repository.IngredientRepository;
+import dev.mohsenkohan.tacocloud.part1.domain.Ingredient;
+import dev.mohsenkohan.tacocloud.part1.repository.IngredientRepository;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 

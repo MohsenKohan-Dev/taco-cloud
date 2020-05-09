@@ -1,7 +1,6 @@
-package dev.mohsenkohan.tacocloud.controller;
+package dev.mohsenkohan.tacocloud.part1.controller;
 
-import dev.mohsenkohan.tacocloud.RegistrationForm;
-import dev.mohsenkohan.tacocloud.repository.UserRepository;
+import dev.mohsenkohan.tacocloud.part1.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

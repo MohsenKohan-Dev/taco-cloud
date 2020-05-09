@@ -1,6 +1,6 @@
-package dev.mohsenkohan.tacocloud.repository;
+package dev.mohsenkohan.tacocloud.part1.repository;
 
-import dev.mohsenkohan.tacocloud.domain.Ingredient;
+import dev.mohsenkohan.tacocloud.part1.domain.Ingredient;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 

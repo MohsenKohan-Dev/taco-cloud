@@ -1,12 +1,12 @@
-package dev.mohsenkohan.tacocloud.controller;
+package dev.mohsenkohan.tacocloud.part1.controller;
 
 
-import dev.mohsenkohan.tacocloud.domain.Ingredient;
-import dev.mohsenkohan.tacocloud.domain.Ingredient.Type;
-import dev.mohsenkohan.tacocloud.domain.Order;
-import dev.mohsenkohan.tacocloud.domain.Taco;
-import dev.mohsenkohan.tacocloud.repository.IngredientRepository;
-import dev.mohsenkohan.tacocloud.repository.TacoRepository;
+import dev.mohsenkohan.tacocloud.part1.domain.Ingredient;
+import dev.mohsenkohan.tacocloud.part1.domain.Ingredient.Type;
+import dev.mohsenkohan.tacocloud.part1.domain.Order;
+import dev.mohsenkohan.tacocloud.part1.domain.Taco;
+import dev.mohsenkohan.tacocloud.part1.repository.IngredientRepository;
+import dev.mohsenkohan.tacocloud.part1.repository.TacoRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

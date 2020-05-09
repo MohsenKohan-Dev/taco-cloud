@@ -1,7 +1,7 @@
-package dev.mohsenkohan.tacocloud.repository;
+package dev.mohsenkohan.tacocloud.part1.repository;
 
-import dev.mohsenkohan.tacocloud.domain.Ingredient;
-import dev.mohsenkohan.tacocloud.domain.Taco;
+import dev.mohsenkohan.tacocloud.part1.domain.Ingredient;
+import dev.mohsenkohan.tacocloud.part1.domain.Taco;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.PreparedStatementCreatorFactory;

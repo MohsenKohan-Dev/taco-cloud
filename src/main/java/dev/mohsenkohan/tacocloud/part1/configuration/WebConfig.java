@@ -1,4 +1,4 @@
-package dev.mohsenkohan.tacocloud.configuration;
+package dev.mohsenkohan.tacocloud.part1.configuration;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;

@@ -1,7 +1,7 @@
-package dev.mohsenkohan.tacocloud.service;
+package dev.mohsenkohan.tacocloud.part1.service;
 
-import dev.mohsenkohan.tacocloud.domain.User;
-import dev.mohsenkohan.tacocloud.repository.UserRepository;
+import dev.mohsenkohan.tacocloud.part1.domain.User;
+import dev.mohsenkohan.tacocloud.part1.repository.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

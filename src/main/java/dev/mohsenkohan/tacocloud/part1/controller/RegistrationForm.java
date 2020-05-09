@@ -1,6 +1,6 @@
-package dev.mohsenkohan.tacocloud;
+package dev.mohsenkohan.tacocloud.part1.controller;
 
-import dev.mohsenkohan.tacocloud.domain.User;
+import dev.mohsenkohan.tacocloud.part1.domain.User;
 import lombok.Data;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
