@@ -4,6 +4,7 @@ import dev.mohsenkohan.tacocloud.part1.domain.Taco;
 import dev.mohsenkohan.tacocloud.part2.repository.TacoRestRepository;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,5 +31,11 @@ public class DesignTacoRestController {
     public ResponseEntity<Taco> tacoById(@PathVariable("id") Long id) {
         Optional<Taco> optionalTaco = tacoRepository.findById(id);
         return ResponseEntity.of(optionalTaco);
+    }
+
+    @PostMapping(consumes = "application/json")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Taco postTaco(@RequestBody Taco taco) {
+        return tacoRepository.save(taco);
     }
 }
