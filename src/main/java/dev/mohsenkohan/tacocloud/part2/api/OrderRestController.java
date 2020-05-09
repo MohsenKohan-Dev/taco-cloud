@@ -2,6 +2,7 @@ package dev.mohsenkohan.tacocloud.part2.api;
 
 import dev.mohsenkohan.tacocloud.part1.domain.Order;
 import dev.mohsenkohan.tacocloud.part1.repository.OrderRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -49,5 +50,11 @@ public class OrderRestController {
             order.setCcCVV(patch.getCcCVV());
 
         return orderRepository.save(order);
+    }
+
+    @DeleteMapping("/{orderId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteOrder(@PathVariable("orderId") Long orderId) {
+        orderRepository.deleteById(orderId);
     }
 }
