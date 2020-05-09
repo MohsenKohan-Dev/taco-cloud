@@ -4,8 +4,10 @@ import dev.mohsenkohan.tacocloud.part1.domain.Ingredient;
 import dev.mohsenkohan.tacocloud.part1.domain.Ingredient.Type;
 import lombok.Getter;
 import org.springframework.hateoas.RepresentationModel;
+import org.springframework.hateoas.server.core.Relation;
 
 @Getter
+@Relation(itemRelation = "ingredient", collectionRelation = "ingredients")
 public class IngredientResource extends RepresentationModel<IngredientResource> {
 
     private final String name;
