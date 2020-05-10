@@ -10,9 +10,14 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.UriComponentsBuilder;
 
+import java.net.URI;
 import java.util.Arrays;
+import java.util.HashMap;
 
 @Profile("!prod")
 @Configuration
@@ -51,6 +56,32 @@ public class DevelopmentConfig {
             taco3.setName("Veg-Out");
             taco3.setIngredients(Arrays.asList(flourTortilla, cornTortilla, tomatoes, lettuce, salsa));
             tacoRepo.save(taco3);
+
+            System.out.println(getIngredientById(flourTortilla.getId()));
+
+            System.out.println(getIngredientResponseEntityById(lettuce.getId()).getHeaders());
+            System.out.println(getIngredientResponseEntityById(lettuce.getId()).getBody());
         };
+    }
+
+    @Bean
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
+
+    private Ingredient getIngredientById(String ingredientId) {
+        return restTemplate().getForObject("http://localhost:8080/ingredients/{id}",
+                Ingredient.class, ingredientId);
+    }
+
+    private ResponseEntity<Ingredient> getIngredientResponseEntityById(String ingredientId) {
+        HashMap<String, String> uriVariables = new HashMap<>();
+        uriVariables.put("id", ingredientId);
+
+        URI uri = UriComponentsBuilder
+                .fromHttpUrl("http://localhost:8080/ingredients/{id}")
+                .build(uriVariables);
+
+        return restTemplate().getForEntity(uri, Ingredient.class);
     }
 }
