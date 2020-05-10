@@ -10,6 +10,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
+import org.springframework.hateoas.MediaTypes;
+import org.springframework.hateoas.client.Traverson;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.client.RestTemplate;
@@ -61,12 +63,22 @@ public class DevelopmentConfig {
 
             System.out.println(getIngredientResponseEntityById(lettuce.getId()).getHeaders());
             System.out.println(getIngredientResponseEntityById(lettuce.getId()).getBody());
+
+            System.out.println(addIngredient(new Ingredient("ABCD", "ABCD Cheese", Ingredient.Type.CHEESE)));
         };
     }
 
     @Bean
     public RestTemplate restTemplate() {
         return new RestTemplate();
+    }
+
+    @Bean
+    public Traverson traverson() {
+        return new Traverson(
+                URI.create("http://localhost:8080/api"),
+                MediaTypes.HAL_JSON
+        );
     }
 
     private Ingredient getIngredientById(String ingredientId) {
@@ -83,5 +95,10 @@ public class DevelopmentConfig {
                 .build(uriVariables);
 
         return restTemplate().getForEntity(uri, Ingredient.class);
+    }
+
+    private Ingredient addIngredient(Ingredient ingredient) {
+        String ingredientsUrl = traverson().follow("ingredients").asLink().getHref();
+        return restTemplate().postForObject(ingredientsUrl, ingredient, Ingredient.class);
     }
 }
